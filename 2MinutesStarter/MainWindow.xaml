@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:tms="clr-namespace:TwoMinutesStarter"
     Title="2MinitesStarter"
-    Background="#c0d9c4"
+    Background="{DynamicResource MaterialDesign.Brush.Background}"
     WindowState="Maximized"
     WindowStyle="None"
     mc:Ignorable="d">
@@ -31,8 +31,21 @@
         <TextBox
             Grid.Row="1"
             Grid.Column="1"
+            Margin="0,0,8,0"
             VerticalAlignment="Top"
             tms:PlaceHolderAttachedProperty.PlaceHolder="作業名を入力"
             FontSize="40" />
+        <Button
+            Grid.Row="1"
+            Grid.Column="2"
+            Height="64"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Background="{DynamicResource MaterialDesign.Brush.Primary.Dark}"
+            Cursor="Hand"
+            FontSize="40"
+            Foreground="{DynamicResource MaterialDesign.Brush.Primary.Dark.Foreground}">
+            開始
+        </Button>
     </Grid>
 </Window>
