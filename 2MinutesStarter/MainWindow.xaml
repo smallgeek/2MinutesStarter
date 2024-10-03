@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:TwoMinutesStarter"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:tms="clr-namespace:TwoMinutesStarter"
     Title="2MinitesStarter"
     Background="#c0d9c4"
     WindowState="Maximized"
@@ -31,7 +32,7 @@
             Grid.Row="1"
             Grid.Column="1"
             VerticalAlignment="Top"
-            FontSize="40"
-            Text="作業名を入力" />
+            tms:PlaceHolderAttachedProperty.PlaceHolder="作業名を入力"
+            FontSize="40" />
     </Grid>
 </Window>
