@@ -34,7 +34,9 @@
             Margin="0,0,8,0"
             VerticalAlignment="Top"
             tms:PlaceHolderAttachedProperty.PlaceHolder="作業名を入力"
-            FontSize="40" />
+            Cursor=""
+            FontSize="40"
+            Text="{Binding WorkName.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <Button
             Grid.Row="1"
             Grid.Column="2"
@@ -42,6 +44,7 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Background="{DynamicResource MaterialDesign.Brush.Primary.Dark}"
+            Command="{Binding StartCommand, Mode=OneTime}"
             Cursor="Hand"
             FontSize="40"
             Foreground="{DynamicResource MaterialDesign.Brush.Primary.Dark.Foreground}">
