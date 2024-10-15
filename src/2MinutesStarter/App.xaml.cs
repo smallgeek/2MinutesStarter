@@ -18,6 +18,7 @@ namespace TwoMinutesStarter
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.RegisterForNavigation<StartView>();
         }
     }
 
