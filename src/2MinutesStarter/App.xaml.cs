@@ -20,6 +20,7 @@ namespace TwoMinutesStarter
         {
             containerRegistry.RegisterForNavigation<StartView>();
             containerRegistry.RegisterForNavigation<WorkingView>();
+            containerRegistry.RegisterForNavigation<ContinueConfirmView>();
         }
     }
 

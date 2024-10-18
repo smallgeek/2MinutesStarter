@@ -1,10 +1,12 @@
 ﻿using R3;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TwoMinutesStarter.Models;
+using TwoMinutesStarter.Views;
 
 namespace TwoMinutesStarter.ViewModels
 {
@@ -13,6 +15,7 @@ namespace TwoMinutesStarter.ViewModels
     /// </summary>
     public class WorkingViewModel : BindableBase, INavigationAware
     {
+        private readonly IRegionManager regionManager;
         private readonly WorkTimer timer;
 
         /// <summary>
@@ -21,21 +24,30 @@ namespace TwoMinutesStarter.ViewModels
         public ReactiveProperty<string> WorkName { get; }
 
         /// <summary>
-        /// 経過時間
+        /// 残り時間
         /// </summary>
-        public ReactiveProperty<TimeSpan> ElapsedTime { get; }
+        public ReactiveProperty<TimeSpan> TimeLeft { get; }
 
         /// <summary>
         /// コンストラクタ
         /// </summary>
         /// <param name="timer">作業タイマー</param>
-        public WorkingViewModel(WorkTimer timer)
+        public WorkingViewModel(IRegionManager regionManager, WorkTimer timer)
         {
+            this.regionManager = regionManager;
             this.timer = timer;
 
-            ElapsedTime = timer
-                .ObservePropertyChanged(t => t.ElapsedTime)
+            TimeLeft = this.timer
+                .ObservePropertyChanged(t => t.TimeLeft)
                 .ToBindableReactiveProperty();
+
+            // ステータスが継続確認になったときに遷移
+            this.timer.ObservePropertyChanged(t => t.Status)
+                .Where(s => s == TimerStatus.ContinueConfirm)
+                .Subscribe(_ =>
+                {
+                    this.regionManager.RequestNavigate("ContentRegion", nameof(ContinueConfirmView));
+                });
 
             WorkName = new ReactiveProperty<string>();
         }
@@ -44,7 +56,6 @@ namespace TwoMinutesStarter.ViewModels
         
         public void OnNavigatedFrom(NavigationContext navigationContext)
         {
-            timer.Stop();
         }
 
         public void OnNavigatedTo(NavigationContext navigationContext)
