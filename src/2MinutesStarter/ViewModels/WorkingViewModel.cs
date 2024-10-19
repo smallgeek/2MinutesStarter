@@ -44,6 +44,7 @@ namespace TwoMinutesStarter.ViewModels
             // ステータスが継続確認になったときに遷移
             this.timer.ObservePropertyChanged(t => t.Status)
                 .Where(s => s == TimerStatus.ContinueConfirm)
+                .ObserveOn(SynchronizationContext.Current)
                 .Subscribe(_ =>
                 {
                     this.regionManager.RequestNavigate("ContentRegion", nameof(ContinueConfirmView));
