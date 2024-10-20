@@ -11,9 +11,9 @@
         Initial,
 
         /// <summary>
-        /// 作業中
+        /// お試し
         /// </summary>
-        Working,
+        Trying,
 
         /// <summary>
         /// 継続確認

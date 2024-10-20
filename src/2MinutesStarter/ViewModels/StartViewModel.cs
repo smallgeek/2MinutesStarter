@@ -47,7 +47,7 @@ namespace TwoMinutesStarter.ViewModels
                         { nameof(WorkName), WorkName.Value }
                     };
 
-                    this.regionManager.RequestNavigate("ContentRegion", nameof(WorkingView), navigationParameters);
+                    this.regionManager.RequestNavigate("ContentRegion", nameof(TryingView), navigationParameters);
                 }, initialCanExecute: false);
         }
 

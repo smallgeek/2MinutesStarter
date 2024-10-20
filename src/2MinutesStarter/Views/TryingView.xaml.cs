@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace TwoMinutesStarter.Views
 {
     /// <summary>
-    /// WorkingView.xaml の相互作用ロジック
+    /// TryingView.xaml の相互作用ロジック
     /// </summary>
-    public partial class WorkingView : UserControl
+    public partial class TryingView : UserControl
     {
-        public WorkingView()
+        public TryingView()
         {
             InitializeComponent();
         }

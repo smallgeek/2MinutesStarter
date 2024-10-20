@@ -61,7 +61,7 @@ namespace TwoMinutesStarter.Models
                     }
                 });
 
-            Status = TimerStatus.Working;
+            Status = TimerStatus.Trying;
         }
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace TwoMinutesStarter.Models
         /// <exception cref="InvalidOperationException"></exception>
         public void Stop()
         {
-            if (Status != TimerStatus.Working)
+            if (Status != TimerStatus.Trying)
             {
                 throw new InvalidOperationException("停止できるのは作業中のみです。");
             }

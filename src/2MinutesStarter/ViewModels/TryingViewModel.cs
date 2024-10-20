@@ -13,7 +13,7 @@ namespace TwoMinutesStarter.ViewModels
     /// <summary>
     /// 作業中画面の ViewModel
     /// </summary>
-    public class WorkingViewModel : BindableBase, INavigationAware
+    public class TryingViewModel : BindableBase, INavigationAware
     {
         private readonly IRegionManager regionManager;
         private readonly WorkTimer timer;
@@ -32,7 +32,7 @@ namespace TwoMinutesStarter.ViewModels
         /// コンストラクタ
         /// </summary>
         /// <param name="timer">作業タイマー</param>
-        public WorkingViewModel(IRegionManager regionManager, WorkTimer timer)
+        public TryingViewModel(IRegionManager regionManager, WorkTimer timer)
         {
             this.regionManager = regionManager;
             this.timer = timer;
