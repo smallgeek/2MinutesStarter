@@ -36,6 +36,16 @@ namespace TwoMinutesStarter.Models
         }
 
         /// <summary>
+        /// タイマーを初期化する
+        /// </summary>
+        public void Initialize()
+        {
+            interval?.Dispose();
+            Status = TimerStatus.Initial;
+            TimeLeft = new TimeSpan(0, 2, 0);
+        }
+
+        /// <summary>
         /// タイマーを開始する
         /// </summary>
         /// <exception cref="InvalidOperationException"></exception>

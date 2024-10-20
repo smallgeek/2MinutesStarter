@@ -1,6 +1,7 @@
 ﻿using System.Configuration;
 using System.Data;
 using System.Windows;
+using TwoMinutesStarter.Models;
 using TwoMinutesStarter.Views;
 
 namespace TwoMinutesStarter
@@ -21,6 +22,10 @@ namespace TwoMinutesStarter
             containerRegistry.RegisterForNavigation<StartView>();
             containerRegistry.RegisterForNavigation<TryingView>();
             containerRegistry.RegisterForNavigation<ContinueConfirmView>();
+            containerRegistry.RegisterForNavigation<WorkingView>();
+
+            WorkTimer timer = new WorkTimer();
+            containerRegistry.RegisterInstance(timer);
         }
     }
 
